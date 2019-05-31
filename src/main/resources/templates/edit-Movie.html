@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit movie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1>My movie app</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Movie App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/showMovie">Show movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addMovie">Add movie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/edit-Movie">Edit movie</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Edit movie</h1>
+        <p class="lead">
+
+        <form action="/update-movie" method="post" th:object="${movieform}">
+        <input type="hidden" th:field="${movieform.movie_id}">
+            <div class="form-group">
+                <label for="movie_title">Movie title</label>
+                <input type="text" th:field="${movieform.movie_title}" class="form-control" id="movie_title" placeholder="Enter movie title: 'Game of thrones'" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" th:field="${movieform.genre}" placeholder="Genre" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="year_of _release">Year of release</label>
+                <input type="number" class="form-control" id="year_of _release" th:field="${movieform.year_of_release}" placeholder="Year of release ">
+            </div>
+            <div class="form-group">
+                <label for="producer">Producer</label>
+                <input type="text" class="form-control" id="producer" th:field="${movieform.producer}" placeholder="Producer" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="rating">Movie rating</label>
+                <input type="number" class="form-control" id="rating" th:field="${movieform.rating}" placeholder="Movie rating">
+            </div>
+            <div class="form-group">
+                <label for="rating">Language</label>
+                <input type="text" class="form-control" id="language" th:field="${movieform.language}" placeholder="Language">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update movie</button>
+            <button type="reset" class="btn btn-primary">Cancel</button>
+        </form>
+
+
+
+        </p>
+    </div>
+
+    <!--<p>See theaters <a href="/all-theater">here</a></p>-->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>
